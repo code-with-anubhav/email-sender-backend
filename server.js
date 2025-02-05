@@ -6,12 +6,11 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(
-  cors({
-    origin: "https://emailsenderbyanubhav.netlify.app/",
-    methods: ["POST", "GET", "PUT"],
-  })
-);
+app.use(cors({
+  origin: "https://emailsenderbyanubhav.netlify.app", 
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
 app.use(express.json());
 
 let transporter = nodemailer.createTransport({
